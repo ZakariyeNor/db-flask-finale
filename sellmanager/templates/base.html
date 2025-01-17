@@ -3,9 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <title>Sells App</title>
 </head>
 <body>
-    <h1>home</h1>
+    <header>
+        <!-- top navbar -->
+        <nav class="blue-grey lighten-1">
+            <div class="nav-wrapper">
+            <i class="fa-solid fa-chart-column light-blue lighten-1"></i>
+              <a href="" class="brand-logo">Sells Organizer</a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
+              <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="">New Sells</a></li>
+                <li><a href="">Sells Man</a></li>
+              </ul>
+            </div>
+          </nav>
+
+        <!-- mobile sidenav -->
+          <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="">New Sells</a></li>
+            <li><a href="">Sells Man</a></li>
+          </ul>
+    </header>
+
+    <main class="container">
+
+        {% block content %}
+    
+        {% endblock %}
+    
+    </main>
+        
+    
+        <footer class="page-footer blue-grey darken-4">
+            <div class="footer-copyright">
+              <div class="container">
+              © 2014 Copyright Text
+              <a class="white-text right" href="https://facebook.com" target="_blank">&copy; Code institute</a>
+              </div>
+            </div>
+          </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Fontawesome link -->
+    <script src="https://kit.fontawesome.com/44dbf25b5c.js" crossorigin="anonymous"></script>
+
+    <!-- Custom js -->
+     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
