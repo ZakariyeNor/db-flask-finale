@@ -2,6 +2,24 @@
 {% block content %}
 
 
-<h3 class="blue-grey-taxt text-lighten-1- center-align">Add Category</h3> 
+<h3 class="blue-grey-taxt text-lighten-1- center-align">Add Sells Category</h3> 
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{  }}">
+        <div class="row">
+                <div class="input-field col s12">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <input placeholder="Placeholder" id="sell_category" min="25" max="50" name="sell_category" type="text" class="validate" required>
+                    <label for="sell_category">Category Name</label>
+                </div>
+
+                <div class="col s12 center-align mtin">
+                    <a href="{{ url_for('sells_category') }}" class="btn-large light-yellow darken-2">
+                        Add Category <i class="fas fa-plus-square right"></i>
+                    </a>
+                </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}
