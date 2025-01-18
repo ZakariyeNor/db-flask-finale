@@ -34,3 +34,12 @@ def edit_sells(category_id):
         db.session.commit()
         return redirect(url_for('sells_category'))
     return render_template('edit_sells.html', edit_sells=edit_sells)
+
+
+
+@app.route("/delete_sells/<int:category_id>", methods=["GET", "POST"])
+def delete_sells(category_id):
+    delete_sells = Category.query.get_or_404(category_id)
+    db.session.delete(delete_sells)
+    db.session.commit()
+    return redirect(url_for('sells_category'))
