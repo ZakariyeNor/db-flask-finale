@@ -23,3 +23,14 @@ def new_sells():
         db.session.commit()
         return redirect(url_for('sells_category'))
     return render_template('new_sells.html')
+
+
+
+@app.route("/edit_sells/<int:category_id>", methods=["GET", "POST"])
+def edit_sells(category_id):
+    edit_sells = Category.query.get_or_404(category_id)
+    if request.method == "POST":
+        edit_sells.category_name = request.form.get('category_name')
+        db.session.commit()
+        return redirect(url_for('sells_category'))
+    return render_template('edit_sells.html', edit_sells=edit_sells)
