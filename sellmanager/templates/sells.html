@@ -21,7 +21,7 @@
                 {{ sell.sold_total }}
                 
                 <div class="card-action cardad">
-                    <a href="" class="btn btn-green">Edit</a>
+                    <a href="{{ url_for('edit_sold', sells_id=sells.sold_id) }}" class="btn btn-green">Edit</a>
                     <a href="" class="btn red">Delete</a>
                 </div>
             </div>

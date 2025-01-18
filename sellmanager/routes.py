@@ -61,3 +61,19 @@ def new_sells():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('new_sells.html', new_sells=new_sells)
+
+
+
+@app.route('/sold/<int:sells_id>', methods=["GET", "POST"])
+def edit_sold(sells_id):
+    edit_sells = Sells.query.get_or_404(sells_id)
+    new_sells = list(Category.query.order_by(Category.category_name).all())
+    if request.method == "POST":
+        edit_sells.sold_name = request.form.get("sold_name")
+        edit_sells.sold_total = request.form.get("sold_total")
+        edit_sells.sold_to = request.form.get("sold_to")
+        edit_sells.sold_date = request.form.get("sold_date")
+        edit_sells.sold_id = request.form.get("sold_id")
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('edit_sells.html', edit_sells=edit_sells, new_sells=new_sells)
