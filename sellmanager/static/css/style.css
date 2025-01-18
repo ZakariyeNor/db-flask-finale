@@ -4,11 +4,15 @@ body {
     flex-direction: column;
   }
 
-  main {
+main {
     flex: 1 0 auto;
   }
 
-  .mtin {
+.mtin {
     
     margin-top: 20px;
   }
+
+.carda .cardad {
+  margin-top: 20px;
+}

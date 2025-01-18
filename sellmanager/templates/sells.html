@@ -17,8 +17,13 @@
                 <strong>{{ sell.sold_name }} : </strong> : {{ sell.sold_date }}
                 
             </div>
-            <div class="collapsible-body"><strong>{{ sell.sold_to }} |</strong>
+            <div class="collapsible-body carda"><strong>{{ sell.sold_to }} |</strong>
                 {{ sell.sold_total }}
+                
+                <div class="card-action cardad">
+                    <a href="" class="btn btn-green">Edit</a>
+                    <a href="" class="btn red">Delete</a>
+                </div>
             </div>
         </li>
     {% endfor %}
