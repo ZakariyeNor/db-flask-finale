@@ -64,8 +64,8 @@ def new_sells():
 
 
 
-@app.route('/sold/<int:sells_id>', methods=["GET", "POST"])
-def edit_sold(sells_id):
+@app.route('/edit_sells/<int:sells_id>', methods=["GET", "POST"])
+def edit_sells(sells_id):
     edit_sells = Sells.query.get_or_404(sells_id)
     new_sells = list(Category.query.order_by(Category.category_name).all())
     if request.method == "POST":
@@ -77,3 +77,12 @@ def edit_sold(sells_id):
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('edit_sells.html', edit_sells=edit_sells, new_sells=new_sells)
+
+
+
+@app.route("/delete_sold/<int:sells_id>", methods=["GET", "POST"])
+def delete_sold(sells_id):
+    delete_sold = Category.query.get_or_404(sells_id)
+    db.session.delete(delete_sold)
+    db.session.commit()
+    return redirect(url_for('home'))
