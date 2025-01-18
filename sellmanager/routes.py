@@ -15,14 +15,14 @@ def sells_category():
 
 
 
-@app.route("/new_sells", methods=["GET", "POST"])
-def new_sells():
+@app.route("/new_category", methods=["GET", "POST"])
+def new_category():
     if request.method == "POST":
         category = Category(category_name=request.form.get("category_name"))
         db.session.add(category)
         db.session.commit()
         return redirect(url_for('sells_category'))
-    return render_template('new_sells.html')
+    return render_template('new_category.html')
 
 
 
