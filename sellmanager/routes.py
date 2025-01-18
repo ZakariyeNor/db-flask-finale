@@ -5,7 +5,8 @@ from sellmanager.models import Category, Sells
 #app route
 @app.route('/')
 def home():
-    return render_template('sells.html')
+    sells = list(Sells.query.order_by(Sells.sold_id).all())
+    return render_template('sells.html', sells=sells)
 
 
 @app.route('/sells_category')
@@ -49,14 +50,14 @@ def delete_sells(category_id):
 def new_sells():
     new_sells = list(Category.query.order_by(Category.category_name).all())
     if request.method == "POST":
-        sells = Sells(
+        sell = Sells(
             sold_name=request.form.get("sold_name"),
             sold_total=request.form.get("sold_total"),
             sold_to=request.form.get("sold_to"),
             sold_date=request.form.get("sold_date"),
             sold_id=request.form.get("sold_id") 
         )
-        db.session.add(sells)
+        db.session.add(sell)
         db.session.commit()
         return redirect(url_for('home'))
     return render_template('new_sells.html', new_sells=new_sells)

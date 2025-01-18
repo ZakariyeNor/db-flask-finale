@@ -8,7 +8,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fa-solid fa-industry"></i>
-                <input placeholder="Placeholder" id="sold_name" name="sold_name" minlength="25" maxlength="50" type="text" class="validate" required>
+                <input placeholder="Placeholder" id="sold_name" name="sold_name" minlength="6" maxlength="22" type="text" class="validate" required>
                 <label for="sold_name">Sold Name</label>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fa-solid fa-handshake"></i>
-                <input placeholder="Placeholder" id="sold_to" name="sold_to" minlength="25" maxlength="50" type="text" class="validate" required>
+                <input placeholder="Placeholder" id="sold_to" name="sold_to" minlength="6" maxlength="20" type="text" class="validate" required>
                 <label for="sold_to">Sold To</label>
             </div>
         </div>
@@ -32,13 +32,13 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix light-grey-text text-darken-4"></i>
-                <select id="category_id" name="category_id" class="validate">
+                <select id="sold_id" name="sold_id" class="validate">
                     <option value="" disabled selected>Choose your category</option>
                     {% for new_sell in new_sells %}
                         <option value="{{ new_sell.id }}">{{ new_sell.category_name }}</option> 
                     {% endfor %}
                 </select>
-                  <label for="category_id">Sells Category</label>
+                  <label for="sold_id">Sells Category</label>
             </div>
         </div>
         <!-- Date sold -->

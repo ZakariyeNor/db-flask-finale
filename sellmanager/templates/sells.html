@@ -6,7 +6,21 @@
             Add New Sold data<i class="fas fa-plus-square right"></i>
         </a>
     </div>
-
-    
 </div>
+
+
+<ul class="collapsible">
+    {% for sell in sells %}
+        <li>
+            <div class="collapsible-header  blue-grey">
+                <i class="fa-solid fa-caret-down"></i>
+                <strong>{{ sell.sold_name }} : </strong> : {{ sell.sold_date }}
+                
+            </div>
+            <div class="collapsible-body"><strong>{{ sell.sold_to }} |</strong>
+                {{ sell.sold_total }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>
 {% endblock %}
