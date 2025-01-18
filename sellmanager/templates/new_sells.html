@@ -2,4 +2,62 @@
 {% block content %}
 <h3 class="blue-grey-taxt text-lighten-1- center-align">Add New Sells</h3> 
 
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('new_sells') }}">
+        <!-- Sold name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-industry"></i>
+                <input placeholder="Placeholder" id="sold_name" name="sold_name" minlength="25" maxlength="50" type="text" class="validate" required>
+                <label for="sold_name">Sold Name</label>
+            </div>
+        </div>
+         <!-- Sold total -->
+         <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-chart-line"></i>
+                <input placeholder="371 845, 10 6789 or 3486" id="sold_total" name="sold_total" minlength="1" maxlength="5" type="number" class="validate" required>
+                <label for="sold_total">Sold Total</label>
+            </div>
+        </div>
+        <!-- Sold to whom -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-handshake"></i>
+                <input placeholder="Placeholder" id="sold_to" name="sold_to" minlength="25" maxlength="50" type="text" class="validate" required>
+                <label for="sold_to">Sold To</label>
+            </div>
+        </div>
+        <!-- Sold id -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-grey-text text-darken-4"></i>
+                <select id="category_id" name="category_id" class="validate">
+                    <option value="" disabled selected>Choose your category</option>
+                    {% for new_sell in new_sells %}
+                        <option value="{{ new_sell.id }}">{{ new_sell.category_name }}</option> 
+                    {% endfor %}
+                </select>
+                  <label for="category_id">Sells Category</label>
+            </div>
+        </div>
+        <!-- Date sold -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix light-grey-text text-darken-4"></i>
+                <input id="sold_date" name="sold_date" type="text" class="datepicker validate" required>
+                <label for="sold_date">Sold Date</label>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <div class="row mt-5">
+            <div class="col s12 center-align mtin">
+                <button class="btn-large light-yellow darken-2">
+                    Add Sold Data <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
 {% endblock %}
